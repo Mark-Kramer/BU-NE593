@@ -3,7 +3,7 @@ title: "BU NE593 (Spring 2026)"
 ---
 
 # Introduction
-- Read the [syllabus](/Readings/NE593_Syllabus.pdf)
+- Read the [syllabus](/Slides/NE593_Syllabus.pdf)
 - Read: [Buzsaki and Draguhn, *Neuronal Oscillations in Cortical Networks*, Science, 2004](/Readings/Buzsaki_Science_2004.pdf)
 - Read: [Riquelme and Gjorgjieva, *Towards readable code in neuroscience*, Nat Rev Neuro, 2021](/Readings/Riquelme_2021.pdf)
 - Read: [Wing, *Computational Thinking*, Comm ACM, 2006](/Readings/Wing_2006.pdf)
