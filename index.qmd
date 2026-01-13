@@ -1,0 +1,77 @@
+---
+title: "BU NE593 (Spring 2026)"
+---
+
+# Introduction
+- Read the [syllabus](/Readings/NE593_Syllabus.pdf)
+- Read: [Buzsaki and Draguhn, *Neuronal Oscillations in Cortical Networks*, Science, 2004](/Readings/Buzsaki_Science_2004.pdf)
+- Read: [Riquelme and Gjorgjieva, *Towards readable code in neuroscience*, Nat Rev Neuro, 2021](/Readings/Riquelme_2021.pdf)
+- Read: [Wing, *Computational Thinking*, Comm ACM, 2006](/Readings/Wing_2006.pdf)
+- Read: [Chapter 4 (Intro to Programming) @ Cohen, Analyzing Neural Time Series Data, 2014](/Readings/Cohen_chap4.pdf)
+- Read: [Chapter 37 (Themes & Advice) @ Cohen, Analyzing Neural Time Series Data, 2014](/Readings/Cohen_chap37.pdf)
+- Lecture Slides: [Rhythms](/Slides/Rhythms_1.pdf), [Programming Habits](/Slides/Programming_Habits_2.pdf)
+- Code: [Intro to Python](Introduction.html)
+
+<!-- # Perceptron
+- Read: [*Electronic Brain Teaches Itself*, NYT, 1958](/Readings/NYT_1958.pdf)
+- Read: [Sejnowski, *When Will We Be Able to Build Brains Like Ours?*, Scientific Americian, 2010](/Readings/Sejnowski_2010.pdf) 
+- Lecture Slides: [Perceptrons](/Slides/Perceptron_1_and_2.pdf)
+- Code:  [Training a Perceptron in Python](Perceptron.html)
+
+# Hopfield
+- Read: [Kleinfeld, *Nobel honors for John Hopfield*, Neuron, 2024](/Readings/Kleinfeld_2024.pdf)
+- Read: [*Imagining 2076: Connect Your Brain to the Internet*, NYT, 2011](/Readings/Lin_Huang_NYT_2011.pdf)
+- Read: [*Scientists See Promise in Deep-Learning Programs*, NYT, 2012](/Readings/Markoff_NYT_2012.pdf)
+- Lecture Slides: [Hopfield Part 1](/Slides/Hopfield_Lecture_1.pdf), [Linear Algebra Part 1](/Slides/Linear_Algebra_1.pdf), [Hopfield Part 2](/Slides/Hopfield_Lecture_2.pdf)
+- Code: 
+
+# Recurrent Neural Networks
+- Read: [*The Next Frontier Is Inside Your Brain*, NYT, 2013](/Readings/Boffey_NYT_2013.pdf)
+- Read: [*Probing Brain’s Depth, Trying to Aid Memory*, NYT, 2014](/Readings/Carey_NYT_2014.pdf)
+- Lecture Slides: [RNN](/Slides/RNN_Lecture.pdf)
+- Code:
+
+# Leaky Integrate \& Fire Neuron
+- Read: [Abbott, Brain Res Bull, 1999](/Readings/Abbott_1999.pdf)
+- Read: [Chapter 1, pages 5-12 @ C. Koch, Biophysics of computation, 1998](/Readings/Koch_Chapter_1.pdf)
+- Read: [*Learning How Little We Know About the Brain*, NYT, 2014](/Readings/Gorman_NYT_2014.pdf)
+- Read: [*Relax, the Terminator Is Far Away*, NYT, 2015](/Readings/Markoff_NYT_2015.pdf)
+- Lecture Slides: [LIF](LIF.pdf)
+- Code:  [LIF in Python](LIF.html)
+
+# Hodgkin-Huxley Neuron
+- Read: [Chapter 2, pages 25-42 @ E. Izhikevich, Dynamical Systems in Neuroscience, 2007.](/Readings/Izhikevich_Chapter_2.pdf)
+- Read: [Hodgkin-Huxley 1-page cheat sheet](/Readings/Hodgkin-Huxley_Cheat_Sheet.pdf)
+- Read: [*A Dying Young Woman’s Hope in Cryonics and a Future*, NYT, 2015](/Readings/Harmon_NYT_2015.pdf)
+- Read: [*When Is the Singularity? Probably Not in Your Lifetime*, NYT, 2016](/Readings/Markoff_NYT_2016.pdf)
+- Lecture Slides: [HH](/Slides/HH_Lecture_1.pdf)
+- Code:  [Hodgkin-Huxley Neuron in Python](HH.html)
+
+# FitzHugh-Nagumo Neuron
+- Read: [Wikipedia](https://en.wikipedia.org/wiki/FitzHugh%E2%80%93Nagumo_model)
+- Read: [*The Great A.I. Awakening*, NYT, 2016](/Readings/Lewis-Kraus_NYT_2016.pdf)
+- Read: [Thwaites et al, *The difficult legacy of Turing’s wager*, J Comp Neuro, 2017](/Readings/Thwaites_2017.pdf)
+- Lecture Slides: [FHN](FHN.pdf)
+- Code:
+
+# A simple oscillator
+- Read: [Kramer et al, *Golden rhythms as a theoretical framework...*, 2022](/Readings/Kramer_2022.pdf)
+- Read: [*Chips Off the Old Block: Computers Are Taking Design Cues From Human Brains*, NYT, 2017](/Readings/Metz_NYT_2017.pdf)
+- Read: [*‘The Beginning of a Wave’: A.I. Tiptoes Into the Workplace*, NYT, 2018](/Readings/Lohr_NYT_2018.pdf)
+- Lecture Slides [SHO](SHO.pdf)
+- Code:
+
+# Gamma rhythms
+- Read: [Chapter 30 (PING) @ Borgers, An Introduction to Modeling Neuronal Dynamics, 2017](/Readings/Borgers_PING_2017.pdf)
+- Read: [Chapter 31 (ING) @ Borgers, An Introduction to Modeling Neuronal Dynamics, 2017](/Readings/Borgers_ING_2017.pdf)
+- Read: [*A Machine May Not Take Your Job, but One Could Become Your Boss*, NYT, 2019](/Readings/Roose_NYT_2019.pdf)
+- Read: [*AI Can Almost Write Like a Human—and More Advances Are Coming*, WSJ, 2020](/Readings/Council_WSJ_2020.pdf)
+- Lecture Slides: [Gamma Rhythms](/Slides/Gamma_Lecture.pdf)
+- Code: [Gamma Lab](Gamma_Lab.html)
+
+# Beta rhythms
+- Read: [Chapter 33 (Beta) @ Borgers, An Introduction to Modeling Neuronal Dynamics, 2017](/Readings/Borgers_Beta_2017.pdf)
+- Read: [*The False Promise of ChatGPT*, NYT, 2023](/Readings/Chomsky_NYT_2023.pdf)
+- Lecture Slides: [Beta Rhythms](Slides/Beta_Lecture.pdf)
+- Code: [Beta](Beta.html)
+-->
