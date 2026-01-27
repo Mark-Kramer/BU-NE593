@@ -14,8 +14,8 @@ website:
         text: Home
       - href: Introduction.html
         text: Intro
-#      - href: Perceptron.html
-#        text: Perceptron
+      - href: Perceptron.html
+        text: Perceptron
 #      - href: LIF.html
 #        text: LIF
 #      - href: HH.html
