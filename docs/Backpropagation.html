@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Leaky Integrate and Fire Neuron – BU NE593</title>
+<title>Backpropagation – BU NE593</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -228,7 +228,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"import numpy as np\nimport matplotlib.pyplot as plt","id":1,"options":{"results":"markup","out-height":"","read-only":"false","label":"","out-width":"700px","classes":"","autorun":"","output":"true","warning":"true","dpi":72,"fig-height":5,"fig-width":7,"context":"interactive","message":"true","fig-cap":"","comment":""}},{"code":"Vstar=1.0\ntau  =1.0","id":2,"options":{"results":"markup","out-height":"","read-only":"false","label":"","out-width":"700px","classes":"","autorun":"","output":"true","warning":"true","dpi":72,"fig-height":5,"fig-width":7,"context":"interactive","message":"true","fig-cap":"","comment":""}},{"code":"dt=0.01","id":3,"options":{"results":"markup","out-height":"","read-only":"false","label":"","out-width":"700px","classes":"","autorun":"","output":"true","warning":"true","dpi":72,"fig-height":5,"fig-width":7,"context":"interactive","message":"true","fig-cap":"","comment":""}},{"code":"V = np.zeros([1000,1])\nnp.shape(V)","id":4,"options":{"results":"markup","out-height":"","read-only":"false","label":"","out-width":"700px","classes":"","autorun":"","output":"true","warning":"true","dpi":72,"fig-height":5,"fig-width":7,"context":"interactive","message":"true","fig-cap":"","comment":""}},{"code":"V[0]=0.2","id":5,"options":{"results":"markup","out-height":"","read-only":"false","label":"","out-width":"700px","classes":"","autorun":"","output":"true","warning":"true","dpi":72,"fig-height":5,"fig-width":7,"context":"interactive","message":"true","fig-cap":"","comment":""}},{"code":"for k in range(1,999):\n    V[k+1] = V[k] + dt*(\"something\")","id":6,"options":{"results":"markup","out-height":"","read-only":"false","label":"","out-width":"700px","classes":"","autorun":"","output":"true","warning":"true","dpi":72,"fig-height":5,"fig-width":7,"context":"interactive","message":"true","fig-cap":"","comment":""}},{"code":"plt.figure()\nplt.plot(V)\nplt.show()","id":7,"options":{"results":"markup","out-height":"","read-only":"false","label":"","out-width":"700px","classes":"","autorun":"","output":"true","warning":"true","dpi":72,"fig-height":5,"fig-width":7,"context":"interactive","message":"true","fig-cap":"","comment":""}},{"code":"t = np.arange(0,len(V))*dt","id":8,"options":{"results":"markup","out-height":"","read-only":"false","label":"","out-width":"700px","classes":"","autorun":"","output":"true","warning":"true","dpi":72,"fig-height":5,"fig-width":7,"context":"interactive","message":"true","fig-cap":"","comment":""}},{"code":"plt.figure()\nplt.plot(t,V)\nplt.xlabel('Time [s]')\nplt.ylabel('V')\nplt.show()","id":9,"options":{"results":"markup","out-height":"","read-only":"false","label":"","out-width":"700px","classes":"","autorun":"","output":"true","warning":"true","dpi":72,"fig-height":5,"fig-width":7,"context":"interactive","message":"true","fig-cap":"","comment":""}},{"code":"import numpy as np\nimport matplotlib.pyplot as plt\n\nVstar   = 1                           #Set the parameter Vstar.\ntau  = 1                              #Set the parameter tau.\ndt  = 0.01                            #Set the timestep.\nV   = np.zeros([1000,1])              #Initialize V.\nV[0]= 0.2;                            #Set the initial value of V.\n\nfor k in range(1,999):                #March forward in time,\n    V[k+1] = V[k] + dt*(\"something\")  #... updating V along the way.\n\nt = np.arange(0,len(V))*dt            #Define the time axis.\n\nplt.figure()\nplt.plot(t,V)                         #Plot the results.\nplt.xlabel('Time [s]')\nplt.ylabel('Voltage [mV]')\nplt.show()","id":10,"options":{"results":"markup","out-height":"","read-only":"false","label":"","out-width":"700px","classes":"","autorun":"","output":"true","warning":"true","dpi":72,"fig-height":5,"fig-width":7,"context":"interactive","message":"true","fig-cap":"","comment":""}},{"code":"Vth    =  25;     #Define the voltage threshold.\nVreset = -10;     #Define the reset voltage.\n\nfor k in range(1,999):                #March forward in time,\n    V[k+1] = V[k] + dt*(\"something\")  #... updating V along the way.\n    ### ADD SOMETHING HERE??? --------------------------","id":11,"options":{"results":"markup","out-height":"","read-only":"false","label":"","out-width":"700px","classes":"","autorun":"","output":"true","warning":"true","dpi":72,"fig-height":5,"fig-width":7,"context":"interactive","message":"true","fig-cap":"","comment":""}},{"code":"### ADD YOUR CODE!","id":12,"options":{"results":"markup","out-height":"","read-only":"false","label":"","out-width":"700px","classes":"","autorun":"","output":"true","warning":"true","dpi":72,"fig-height":5,"fig-width":7,"context":"interactive","message":"true","fig-cap":"","comment":""}}];
+globalThis.qpyodideCellDetails = [{"options":{"classes":"","read-only":"false","comment":"","fig-width":7,"context":"interactive","results":"markup","fig-cap":"","output":"true","out-width":"700px","message":"true","autorun":"","label":"","fig-height":5,"out-height":"","warning":"true","dpi":72},"code":"import numpy as np\nimport matplotlib.pyplot as plt\nimport pandas as pd","id":1},{"options":{"classes":"","read-only":"false","comment":"","fig-width":7,"context":"interactive","results":"markup","fig-cap":"","output":"true","out-width":"700px","message":"true","autorun":"","label":"","fig-height":5,"out-height":"","warning":"true","dpi":72},"code":"df = pd.read_csv(\"https://raw.githubusercontent.com/Mark-Kramer/BU-MA665-MA666/master/Data/backpropagation_example_data.csv\")\n\n# Extract the variables from the loaded data\nin_true = np.array(df.iloc[:,0])  #Get the values associated with the first column of the dataframe\nout_true = np.array(df.iloc[:,1])  #Get the values associated with the second column of the dataframe","id":2},{"options":{"classes":"","read-only":"false","comment":"","fig-width":7,"context":"interactive","results":"markup","fig-cap":"","output":"true","out-width":"700px","message":"true","autorun":"","label":"","fig-height":5,"out-height":"","warning":"true","dpi":72},"code":"print(np.transpose([in_true, out_true]))","id":3},{"options":{"classes":"","read-only":"false","comment":"","fig-width":7,"context":"interactive","results":"markup","fig-cap":"","output":"true","out-width":"700px","message":"true","autorun":"","label":"","fig-height":5,"out-height":"","warning":"true","dpi":72},"code":"def sigmoid(x):\n    # ... # Define the sigmoid anonymous function.\n\ndef feedforward(w, s0):         # Define feedforward solution.\n    # ... x1 = activity of first neuron,\n    # ... s1 = output of first neuron,\n    # ... x2 = activity of second neuron,\n    # ... s2 = output of second neuron,\n    # ... out = output of neural network.\n    return out,s1,s2","id":4},{"options":{"classes":"","read-only":"false","comment":"","fig-width":7,"context":"interactive","results":"markup","fig-cap":"","output":"true","out-width":"700px","message":"true","autorun":"","label":"","fig-height":5,"out-height":"","warning":"true","dpi":72},"code":"w     = [0.5,0.5]                  # Choose initial values for the weights.\nalpha = 0.01                    # Set the learning constant.\n\nK = np.size(in_true);\nresults = np.zeros([K,3])        # Define a variable to hold the results of each iteration.    \n\nfor k in np.arange(K):\n    s0     = in_true[k]          # Define the input,\n    target = out_true[k]         # ... and the target output.\n    \n    #Calculate feedforward solution to get output.\n    \n    #Update the weights.\n    w0 = w[0]; w1 = w[1];\n    w[1] = \"SOMETHING\"\n    w[0] = \"SOMETHING\"\n    \n    # Save the results of this step. --------------------------------------\n    # Here we save the 3 weights, and the neural network output.\n    # results[k,:] = [w[0],w[1],  out]\n\n# Plot the NN weights and error during training \n# plt.clf()\n# plt.plot(results[:,1], label='w1')\n# plt.plot(results[:,0], label='w0')\n# plt.plot(results[:,2]-target, label='error')\n# plt.legend()                       #Include a legend,\n# plt.xlabel('Iteration number');    #... and axis label.\n\n# Print the NN weights\n# print(results[-1,0:2])","id":5}];
 
 
 </script>
@@ -482,7 +482,7 @@ window.Quarto = {
 <span class="menu-text">Perceptron</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Backpropagation.html"> 
+    <a class="nav-link active" href="./Backpropagation.html" aria-current="page"> 
 <span class="menu-text">Backprop</span></a>
   </li>  
 </ul>
@@ -501,13 +501,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#preliminaries" id="toc-preliminaries" class="nav-link active" data-scroll-target="#preliminaries"><span class="header-section-number">1</span> Preliminaries</a></li>
-  <li><a href="#numerical-solutions---introduction" id="toc-numerical-solutions---introduction" class="nav-link" data-scroll-target="#numerical-solutions---introduction"><span class="header-section-number">2</span> Numerical solutions - Introduction</a></li>
-  <li><a href="#numerical-solutions---implementation" id="toc-numerical-solutions---implementation" class="nav-link" data-scroll-target="#numerical-solutions---implementation"><span class="header-section-number">3</span> Numerical solutions - Implementation</a></li>
-  <li><a href="#lif-code-version-1" id="toc-lif-code-version-1" class="nav-link" data-scroll-target="#lif-code-version-1"><span class="header-section-number">4</span> LIF CODE (version 1)</a></li>
-  <li><a href="#voltage-threshold-reset" id="toc-voltage-threshold-reset" class="nav-link" data-scroll-target="#voltage-threshold-reset"><span class="header-section-number">5</span> Voltage threshold &amp; reset</a></li>
-  <li><a href="#if-code-version-2" id="toc-if-code-version-2" class="nav-link" data-scroll-target="#if-code-version-2"><span class="header-section-number">6</span> I&amp;F CODE (version 2)</a></li>
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">7</span> Discussion</a></li>
+  <li><a href="#steps-to-backpropagation" id="toc-steps-to-backpropagation" class="nav-link active" data-scroll-target="#steps-to-backpropagation">Steps to backpropagation</a></li>
+  <li><a href="#load-example-data" id="toc-load-example-data" class="nav-link" data-scroll-target="#load-example-data">Load example data</a></li>
+  <li><a href="#for-training-first-define-two-useful-functions" id="toc-for-training-first-define-two-useful-functions" class="nav-link" data-scroll-target="#for-training-first-define-two-useful-functions">For training, first define two useful functions:</a></li>
+  <li><a href="#now-train-the-neural-network-with-these-in_true-out_true-data." id="toc-now-train-the-neural-network-with-these-in_true-out_true-data." class="nav-link" data-scroll-target="#now-train-the-neural-network-with-these-in_true-out_true-data.">Now, train the neural network with these (<code>in_true</code>, <code>out_true</code>) data.</a></li>
+  <li><a href="#challenge" id="toc-challenge" class="nav-link" data-scroll-target="#challenge">Challenge</a></li>
   </ul>
 </nav>
     </div>
@@ -526,7 +524,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Leaky Integrate and Fire Neuron</h1>
+<h1 class="title">Backpropagation</h1>
 </div>
 
 
@@ -543,241 +541,52 @@ window.Quarto = {
 </header>
 
 
-<p>In this notebook we will use Python to simulate the leaky integrate and fire (LIF) neuron model. We’ll investigate, in particular, how the spiking activity varies as we adjust the input current <span class="math inline">\(I\)</span>.</p>
-<section id="preliminaries" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Preliminaries</h1>
-<p>Before beginning, let’s load in the Python package we’ll need:</p>
+<p>In this notebook, we’ll implement a quick representation of the backpropagation algorithm for the simple two node network.</p>
 <div id="qpyodide-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<section id="steps-to-backpropagation" class="level1">
+<h1>Steps to backpropagation</h1>
+<p>We outlined 4 steps to perform backpropagation,</p>
+<ol type="1">
+<li>Choose random initial weights.</li>
+<li>Train the neural network on given input and output data.</li>
+<li>Update the weights.</li>
+<li>Repeat steps 2 &amp; 3 many times.</li>
+</ol>
+<p>Let’s now implement these steps in an example data set.</p>
 </section>
-<section id="numerical-solutions---introduction" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Numerical solutions - Introduction</h1>
-<p>How do we compute a numerical solution to the integrate and fire model? The basic idea is to rearrange the differential equation to get <span class="math inline">\(V(t+1)\)</span> on the left hand side, and <span class="math inline">\(V(t)\)</span> on the right hand side. Then, if we know what’s happening at time <span class="math inline">\(t\)</span>, we can solve for what’s happening at time <span class="math inline">\(t+1\)</span>.</p>
-<p>For example, consider the differential equation:</p>
-<p><span class="math display">\[
-  \dfrac{dV}{dt} = -\dfrac{V-V_*}{\tau}
-\]</span></p>
-<p>In words, we can think of:</p>
-<p><span class="math inline">\(dV\)</span> as the “change in voltage V”,</p>
-<p><span class="math inline">\(dt\)</span> as the “change in time t”.</p>
-<p>Let’s consider the case that we record the voltage <span class="math inline">\(V\)</span> in discrete time steps. So we observe:</p>
-<p><span class="math inline">\(V[0], V[1], V[2], \ldots\)</span></p>
-<p>at times:</p>
-<p><span class="math inline">\(dt, \, 2*dt, \, 3*dt, \ldots\)</span></p>
-<p>where <span class="math inline">\(dt\)</span> is the time between our samples of <span class="math inline">\(V\)</span>.</p>
-<p>We can now write the “change in voltage V” as:</p>
-<p><span class="math display">\[
-  dV = V(t+1) - V(t)
-\]</span></p>
-<p>Notice that the change in voltage is the difference in V between two sequential time samples. Now, let’s rewrite <span class="math inline">\(\dfrac{dV}{dt}\)</span> as,</p>
-<p><span class="math display">\[
-  \dfrac{dV}{dt} = \dfrac{ V(t+1) - V(t) }{ dt }
-\]</span></p>
-<p>where we’ve replaced <span class="math inline">\(dV\)</span>. Now, let’s substitute this expression into the equation at the top of this file:</p>
-<p><span class="math display">\[
-  \dfrac{ V(t+1) - V(t) }{ dt } = \dfrac{I}{C}.  
-\]</span></p>
-<p>Solving this equation for <span class="math inline">\(V(t+1)\)</span> you’ll find that:</p>
-<p><span class="math display">\[
-  V(t+1) = V(t) + dt*(-\dfrac{V(t)-V_*}{\tau})
-\]</span></p>
-<p>Notice that, in this expression, we use our current value of the voltage <span class="math inline">\(V(t)\)</span> and the model (<span class="math inline">\(-\dfrac{V(t)-V_*}{\tau}\)</span>) to determine the next value of the voltage V(t+1).</p>
-<p>Now, let’s program this equation in Python. First, let’s set the values for the parameters <span class="math inline">\(V_*\)</span> and <span class="math inline">\(\tau\)</span>.</p>
+<section id="load-example-data" class="level1">
+<h1>Load example data</h1>
+<p>The training data is <a href="./Data/backpropagation_example_data.csv">backpropagation_example_data.csv</a>. Get these data, and load them:</p>
 <div id="qpyodide-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>We also need to set the value for <span class="math inline">\(dt\)</span>. This defines the time step for our model. We must choose it small enough so that we don’t miss anything interesting. We’ll choose:</p>
+<p>Here we acquire two variables:</p>
+<p><code>in_true</code>: the true input to the hidden two-node neural network</p>
+<p><code>out_true</code>: the true output of the hidden two-node neural network</p>
+<p>The two-node neural network is hidden because we don’t know the weights (<code>w[0]</code> and <code>w[1]</code>).</p>
+<p>Instead, we only observe the pairs of inputs and outputs to this hidden neural network.</p>
+<p>Let’s look at some of these data:</p>
 <div id="qpyodide-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Let’s assume the units of time are seconds. So, we step forward in time by <span class="math inline">\(0.01\)</span> s.</p>
-<p>The right hand side of our equation is nearly defined, but we’re still missing one thing, <span class="math inline">\(V(t)\)</span>.</p>
-<div class="callout callout-style-simple callout-none no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Q:</strong> What value do we assign to <span class="math inline">\(V(t)\)</span>?</p>
-</div>
-</div>
-</div>
-<p>So here’s an easier question: what <em>initial</em> value do we assign to <span class="math inline">\(V(t)\)</span>?</p>
-<p>To start, we’ll create an array of zeros to hold our results for <span class="math inline">\(V\)</span>:</p>
+<p>These data were created by sending the inputs (<code>in_true</code>, the first column above) into a two-node neural network to produce the outputs (<code>out_true</code>, the second column above).</p>
+<p>Again, we do not know the weights of this network … that’s what we’d like to find.</p>
+<p>To do so, we’ll use these data to train a neural network through back propagation.</p>
+</section>
+<section id="for-training-first-define-two-useful-functions" class="level1">
+<h1>For training, first define two useful functions:</h1>
 <div id="qpyodide-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>This array <code>V</code> consists of 1000 rows and 1 column. We can think of each row entry as corresponding to a discrete step in time. Our goal is to fill-in the values of <code>V</code> (i.e., step forward in time), in a way consistent with our model.</p>
-<p>Let’s choose an initial value for <code>V</code> of 0.2, which in our simple model we’ll assume represents the rest state.</p>
+</section>
+<section id="now-train-the-neural-network-with-these-in_true-out_true-data." class="level1">
+<h1>Now, train the neural network with these (<code>in_true</code>, <code>out_true</code>) data.</h1>
 <div id="qpyodide-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-simple callout-none no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Q:</strong> Given the initial state <code>V[0]=0.2</code>, calculate <code>V[1]</code>. Then calcualte <code>V[2]</code>.</p>
-</div>
-</div>
-</div>
-<p>After the two calculations above, we’ve moved forward two time steps into the future, from <span class="math inline">\(t=0\)</span> s to <span class="math inline">\(t=0.01\)</span> s, and then from <span class="math inline">\(t=0.01\)</span> s to <span class="math inline">\(t=0.02\)</span> s. But what if we want to know <span class="math inline">\(V\)</span> at <span class="math inline">\(t=10\)</span> s? Then, this iteration-by-hand procedure becomes much too boring and error-prone. So, what do we do? Let’s make the computer do it …</p>
 </section>
-<section id="numerical-solutions---implementation" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Numerical solutions - Implementation</h1>
-<p>Let’s computerize this iteration-by-hand procedure to find <code>V[999]</code>.</p>
-<p>To do so, we’ll use a <a href="https://wiki.python.org/moin/ForLoop">for-loop</a>.</p>
-<p>Here’s what it looks like:</p>
-<div id="qpyodide-insertion-location-6"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-simple callout-none no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Q:</strong> Does this loop make sense? Describe what’s happening here. What is <code>something</code>?</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-none no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Q:</strong> Why does the <code>range</code> command end at <code>999</code>?</p>
-</div>
-</div>
-</div>
-<p>Execute this for-loop and examine the results in vector <code>V</code>. To do so, let’s plot <code>V</code>:</p>
-<div id="qpyodide-insertion-location-7"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-simple callout-none no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Q:</strong> What happens to the voltage after 1000 steps?</p>
-</div>
-</div>
-</div>
-<p>This plot is informative, but not great. Really, we’d like to plot the voltage as a function of <em>time</em>, not steps or indices. To do so, we need to define a time axis:</p>
-<div id="qpyodide-insertion-location-8"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-simple callout-none no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Q:</strong> What’s happening in the command above? Does it make sense? (If not, trying printing or plotting <code>t</code>.)</p>
-</div>
-</div>
-</div>
-<p>Now, with <em>time</em> defined, let’s redo the plot of the voltage with the axes labeled appropriately.</p>
-<div id="qpyodide-insertion-location-9"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Finally, let’s put it all together . . .</p>
-</section>
-<section id="lif-code-version-1" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> LIF CODE (version 1)</h1>
-<p>So far, we constructed parts of the I&amp;F model in bits-and-pieces. Let’s now collect all the code, compute a numerical solution to the I&amp;F model, and plot the results (with appropriate axes).</p>
-<div id="qpyodide-insertion-location-10"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-simple callout-none no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Q:</strong> Adjust the parameter <code>Vstar</code>. What happens to <code>V</code> if <code>Vstar=0</code>? Can you set <code>Vstar</code> so that <code>V</code> &gt; 20 within 10 s?</p>
-</div>
-</div>
-</div>
-</section>
-<section id="voltage-threshold-reset" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Voltage threshold &amp; reset</h1>
-<p>Notice, our model is missing something important: <strong>the reset</strong>.</p>
-<div class="callout callout-style-simple callout-none no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Q:</strong> Without the reset, how does the voltage behave as <span class="math inline">\(t\rightarrow\infty\)</span> (if <span class="math inline">\(Vstar&gt;0\)</span>)?</p>
-</div>
-</div>
-</div>
-<p>Now, let’s update our model to include the reset. To do so, we’ll add two things to our code.</p>
-<ul>
-<li>First, we’ll define the voltage threshold <code>Vth</code>, and reset voltage <code>Vreset</code>.</li>
-<li>Second, we’ll check to see if <code>V</code> exceeds <code>Vth</code> using an <a href="https://docs.python.org/3/tutorial/controlflow.html">if-statement</a>; if it does, then we’ll set <code>V</code> equal to <code>Vreset</code>.</li>
-</ul>
-<div class="callout callout-style-simple callout-none no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Q:</strong> How will you update the code below to include the reset?</p>
-</div>
-</div>
-</div>
-<div id="qpyodide-insertion-location-11"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="if-code-version-2" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> I&amp;F CODE (version 2)</h1>
-<p>Now, let’s put it all together to make a complete I&amp;F model (with a thershold and reset), simulate it, and plot the result.</p>
-<div id="qpyodide-insertion-location-12"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-simple callout-none no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Q:</strong> Adjust the parameter <code>I</code>. What happens to <code>V</code> if <code>I=10</code>? If <code>I=100</code>?</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-none no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Q:</strong> Adjust the parameter <code>C</code>. What happens to <code>V</code> if <code>C=0.1</code>? If <code>C=10</code>?</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-none no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Q:</strong> What is “spiking” in this I&amp;F model?</p>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="discussion" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Discussion</h1>
+<section id="challenge" class="level1">
+<h1>Challenge</h1>
 <ol type="1">
-<li><p>Describe the main components of the <strong>IF</strong> model. Draw it (in some way).</p></li>
-<li><p>Describe the main components of the <strong>LIF</strong> model. Draw it (in some way).</p></li>
-<li><p>Describe the differences and similarities between the IF and LIF models.</p></li>
-<li><p>The IF model is meant to mimic a neurons activity. What is realistic about the IF model? What is unrealistic?</p></li>
-<li><p>Describe the roles of the IF model parameters <code>Vreset</code> and <code>Vthreshold</code>.</p></li>
-<li><p>Consider the IF model. Sketch voltage (V) versus time (t) for a small input current, for a large input current.</p>
-<ol type="1">
-<li>How does an increase in capacitance (C) impact the dynamics?</li>
-<li>Can you interpret this physically?</li>
-</ol></li>
-<li><p>Plot the f-I curve for the IF model.</p></li>
+<li>Use the chain rule to verify the expression for <span class="math inline">\(\dfrac{dC}{dw_0} = (out-target)s_2(1-s_2) w_1 s_1 (1-s_1) s_0\)</span>.</li>
 </ol>
-<hr>
 
 
 </section>
