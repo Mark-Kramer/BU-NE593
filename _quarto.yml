@@ -16,6 +16,8 @@ website:
         text: Intro
       - href: Perceptron.html
         text: Perceptron
+      - href: Backpropagation.html
+        text: Backprop
 #      - href: LIF.html
 #        text: LIF
 #      - href: HH.html
