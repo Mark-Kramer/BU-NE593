@@ -18,6 +18,10 @@ website:
         text: Perceptron
       - href: Backpropagation.html
         text: Backprop
+      - href: Hopfield.html
+        text: Hopfield
+      - href: Linear_Algebra.html
+        text: Linear Algebra
 #      - href: LIF.html
 #        text: LIF
 #      - href: HH.html

@@ -21,14 +21,15 @@ title: "BU NE593 (Spring 2026)"
 - Code:  [Training a Perceptron in Python](Perceptron.html)
 - Code:  [Backpropagation Example](Backpropagation.html)
 
-<!-- # Hopfield
+# Hopfield
 - Read: [Kleinfeld, *Nobel honors for John Hopfield*, Neuron, 2024](/Readings/Kleinfeld_2024.pdf)
 - Read: [*Imagining 2076: Connect Your Brain to the Internet*, NYT, 2011](/Readings/Lin_Huang_NYT_2011.pdf)
 - Read: [*Scientists See Promise in Deep-Learning Programs*, NYT, 2012](/Readings/Markoff_NYT_2012.pdf)
 - Lecture Slides: [Hopfield Part 1](/Slides/Hopfield_Lecture_1.pdf), [Linear Algebra Part 1](/Slides/Linear_Algebra_1.pdf), [Hopfield Part 2](/Slides/Hopfield_Lecture_2.pdf)
-- Code: 
+- Code: [Hopfield Examples](Hopfield.html)
+- Code: [Linear Algebra Examples](Linear_Algebra.html)
 
-# Recurrent Neural Networks
+<!-- # Recurrent Neural Networks
 - Read: [*The Next Frontier Is Inside Your Brain*, NYT, 2013](/Readings/Boffey_NYT_2013.pdf)
 - Read: [*Probing Brain’s Depth, Trying to Aid Memory*, NYT, 2014](/Readings/Carey_NYT_2014.pdf)
 - Lecture Slides: [RNN](/Slides/RNN_Lecture.pdf)
