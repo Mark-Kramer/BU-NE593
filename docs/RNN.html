@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Gamma rhythms models – BU NE593</title>
+<title>1. Simulate the activity of a simple RNN. – BU NE593</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -101,6 +101,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -147,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Linear Algebra</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./RNN.html"> 
+    <a class="nav-link active" href="./RNN.html" aria-current="page"> 
 <span class="menu-text">RNN</span></a>
   </li>  
 </ul>
@@ -166,11 +195,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ing" id="toc-ing" class="nav-link active" data-scroll-target="#ing">ING</a>
-  <ul class="collapse">
-  <li><a href="#begin-with-the-inhibitory-synapse-turned-off." id="toc-begin-with-the-inhibitory-synapse-turned-off." class="nav-link" data-scroll-target="#begin-with-the-inhibitory-synapse-turned-off.">Begin with the inhibitory synapse turned off.</a></li>
-  <li><a href="#turn-on-the-inhibitory-synapse." id="toc-turn-on-the-inhibitory-synapse." class="nav-link" data-scroll-target="#turn-on-the-inhibitory-synapse.">Turn on the inhibitory synapse.</a></li>
-  </ul></li>
+  <li><a href="#simulate-the-activity-of-a-feedforward-network." id="toc-simulate-the-activity-of-a-feedforward-network." class="nav-link active" data-scroll-target="#simulate-the-activity-of-a-feedforward-network.">2. Simulate the activity of a feedforward network.</a></li>
+  <li><a href="#simulate-an-rnn." id="toc-simulate-an-rnn." class="nav-link" data-scroll-target="#simulate-an-rnn.">3. Simulate an RNN.</a></li>
   </ul>
 </nav>
     </div>
@@ -179,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Gamma rhythms models</h1>
+<h1 class="title">1. Simulate the activity of a simple RNN.</h1>
 </div>
 
 
@@ -196,94 +222,87 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="1b99eed7-54f1-43c5-8d53-08bdad332e37" class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="51b12d52-8ca8-4edc-a706-1f40f9cb7351" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define h</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> np.zeros([K])</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Set initial values for h</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>h[<span class="dv">0</span>] <span class="op">=</span> <span class="st">"SOMETHING"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Define recurrent connection</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>w    <span class="op">=</span> <span class="st">"SOMETHING"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate the model</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> np.arange(K<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute the activity at the next step.</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">"SOMETHING"</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> plt.figure()</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>plt.plot(h)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Time'</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'activity'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="ing" class="level1">
-<h1>ING</h1>
-<p>Define the ING model. It’s the <a href="https://raw.githubusercontent.com/Mark-Kramer/BU-MA665-MA666/master/HH_functions.py">HH model</a>, with an update to include the inhibitory synaptic dynamics.</p>
-<div id="9dcf6187-08f2-40ac-b95e-fade63ec64c5" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> alphaM(V):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="fl">2.5</span><span class="op">-</span><span class="fl">0.1</span><span class="op">*</span>(V<span class="op">+</span><span class="dv">65</span>)) <span class="op">/</span> (np.exp(<span class="fl">2.5</span><span class="op">-</span><span class="fl">0.1</span><span class="op">*</span>(V<span class="op">+</span><span class="dv">65</span>)) <span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> betaM(V):</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">4</span><span class="op">*</span>np.exp(<span class="op">-</span>(V<span class="op">+</span><span class="dv">65</span>)<span class="op">/</span><span class="dv">18</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> alphaH(V):</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">0.07</span><span class="op">*</span>np.exp(<span class="op">-</span>(V<span class="op">+</span><span class="dv">65</span>)<span class="op">/</span><span class="dv">20</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> betaH(V):</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">/</span>(np.exp(<span class="fl">3.0</span><span class="op">-</span><span class="fl">0.1</span><span class="op">*</span>(V<span class="op">+</span><span class="dv">65</span>))<span class="op">+</span><span class="dv">1</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> alphaN(V):</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="fl">0.1</span><span class="op">-</span><span class="fl">0.01</span><span class="op">*</span>(V<span class="op">+</span><span class="dv">65</span>)) <span class="op">/</span> (np.exp(<span class="dv">1</span><span class="op">-</span><span class="fl">0.1</span><span class="op">*</span>(V<span class="op">+</span><span class="dv">65</span>)) <span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> betaN(V):</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">0.125</span><span class="op">*</span>np.exp(<span class="op">-</span>(V<span class="op">+</span><span class="dv">65</span>)<span class="op">/</span><span class="dv">80</span>)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ing(I0,gI,tauI,T0):</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    dt <span class="op">=</span> <span class="fl">0.01</span><span class="op">;</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    T  <span class="op">=</span> <span class="bu">int</span>(np.ceil(T0<span class="op">/</span>dt))  <span class="co"># [ms]</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    gNa0 <span class="op">=</span> <span class="dv">120</span>   <span class="co"># [mS/cm^2]</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    ENa  <span class="op">=</span> <span class="dv">125</span><span class="op">;</span>  <span class="co"># [mV]</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    gK0  <span class="op">=</span> <span class="dv">36</span><span class="op">;</span>   <span class="co"># [mS/cm^2]</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    EK   <span class="op">=</span> <span class="op">-</span><span class="dv">12</span><span class="op">;</span>  <span class="co"># [mV]</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    gL0  <span class="op">=</span> <span class="fl">0.3</span><span class="op">;</span>  <span class="co"># [mS/cm^2]</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    EL   <span class="op">=</span> <span class="fl">10.6</span><span class="op">;</span> <span class="co"># [mV]</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> np.arange(<span class="dv">0</span>,T)<span class="op">*</span>dt</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    V <span class="op">=</span> np.zeros([T,<span class="dv">1</span>])</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> np.zeros([T,<span class="dv">1</span>])</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    h <span class="op">=</span> np.zeros([T,<span class="dv">1</span>])</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> np.zeros([T,<span class="dv">1</span>])</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize variables to hold the synapse results</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> np.zeros(T)</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    V[<span class="dv">0</span>]<span class="op">=-</span><span class="fl">70.0</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    m[<span class="dv">0</span>]<span class="op">=</span><span class="fl">0.05</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    h[<span class="dv">0</span>]<span class="op">=</span><span class="fl">0.54</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    n[<span class="dv">0</span>]<span class="op">=</span><span class="fl">0.34</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    s[<span class="dv">0</span>]<span class="op">=</span><span class="fl">0.0</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,T<span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        V[i<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> V[i] <span class="op">+</span> dt<span class="op">*</span>(gNa0<span class="op">*</span>m[i]<span class="op">**</span><span class="dv">3</span><span class="op">*</span>h[i]<span class="op">*</span>(ENa<span class="op">-</span>(V[i]<span class="op">+</span><span class="dv">65</span>)) <span class="op">+</span> gK0<span class="op">*</span>n[i]<span class="op">**</span><span class="dv">4</span><span class="op">*</span>(EK<span class="op">-</span>(V[i]<span class="op">+</span><span class="dv">65</span>)) <span class="op">+</span> gL0<span class="op">*</span>(EL<span class="op">-</span>(V[i]<span class="op">+</span><span class="dv">65</span>)) <span class="op">+</span> I0 <span class="op">+</span> gI<span class="op">*</span>s[i]<span class="op">*</span>(<span class="op">-</span><span class="dv">80</span> <span class="op">-</span> V[i]))</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>        m[i<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> m[i] <span class="op">+</span> dt<span class="op">*</span>(alphaM(V[i])<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>m[i]) <span class="op">-</span> betaM(V[i])<span class="op">*</span>m[i])<span class="op">;</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>        h[i<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> h[i] <span class="op">+</span> dt<span class="op">*</span>(alphaH(V[i])<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>h[i]) <span class="op">-</span> betaH(V[i])<span class="op">*</span>h[i])<span class="op">;</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>        n[i<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> n[i] <span class="op">+</span> dt<span class="op">*</span>(alphaN(V[i])<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>n[i]) <span class="op">-</span> betaN(V[i])<span class="op">*</span>n[i])<span class="op">;</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>        s[i<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> s[i] <span class="op">+</span> dt <span class="op">*</span> (((<span class="dv">1</span> <span class="op">+</span> np.tanh(V[i] <span class="op">/</span> <span class="dv">10</span>)) <span class="op">/</span> <span class="dv">2</span>) <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> s[i]) <span class="op">/</span> <span class="fl">0.5</span> <span class="op">-</span> s[i] <span class="op">/</span> tauI)  <span class="co"># Update s</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> V,s,t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<section id="simulate-the-activity-of-a-feedforward-network." class="level1">
+<h1>2. Simulate the activity of a feedforward network.</h1>
+<p>The network has 3 inputs (<span class="math inline">\(I\)</span> = [1,3,-3]), 3 hidden nodes, and 3 outputs.</p>
+<p>Set all bias = 0.</p>
+<div id="8f46b662-fc8c-4a3d-ac21-b612c727fa96" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">"SOMETHING"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="begin-with-the-inhibitory-synapse-turned-off." class="level2">
-<h2 class="anchored" data-anchor-id="begin-with-the-inhibitory-synapse-turned-off.">Begin with the inhibitory synapse turned off.</h2>
-<div id="df62753f-e49d-4e77-9631-04138b547018" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>I0   <span class="op">=</span> <span class="dv">30</span><span class="op">;</span>    <span class="co">#Set the input drive to excite the cell.</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>gI   <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>     <span class="co">#Turn off inhibitory synapse, to start.</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>tauI <span class="op">=</span> <span class="dv">10</span><span class="op">;</span>    <span class="co">#Set decay time of inhibitory synapse to 10ms.</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>T0   <span class="op">=</span> <span class="dv">100</span><span class="op">;</span>   <span class="co">#Simulate for 100 ms.</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>[V,s,t] <span class="op">=</span> ing(I0,gI,tauI,T0)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>plt.plot(t,V)<span class="op">;</span> plt.xlabel(<span class="st">'Time [ms]'</span>)<span class="op">;</span> plt.ylabel(<span class="st">'Voltage [mV]'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<hr>
 </section>
-<section id="turn-on-the-inhibitory-synapse." class="level2">
-<h2 class="anchored" data-anchor-id="turn-on-the-inhibitory-synapse.">Turn on the inhibitory synapse.</h2>
-<div id="a5c0fb13-de44-4987-9972-473b4837b120" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gI <span class="op">=</span> <span class="st">'SOMETHING'</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>[V,s,t] <span class="op">=</span> ing(I0,gI,tauI,T0)<span class="op">;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plt.plot(t,V)<span class="op">;</span> plt.xlabel(<span class="st">'Time [ms]'</span>)<span class="op">;</span> plt.ylabel(<span class="st">'Voltage [mV]'</span>)<span class="op">;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>plt.plot(t,s,<span class="st">'r'</span>)<span class="op">;</span> plt.xlabel(<span class="st">'Time [ms]'</span>)<span class="op">;</span> plt.ylabel(<span class="st">'Inhibitory synaptic gate'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="simulate-an-rnn." class="level1">
+<h1>3. Simulate an RNN.</h1>
+<ul>
+<li>Consider 1 input, 1 hidden neuron, and 1 output.</li>
+<li>Make <span class="math inline">\(I_t\)</span> random noise.</li>
+<li>Use a sigmoid activation function.</li>
+<li>Set bias = 0.</li>
+<li>Set <span class="math inline">\(W_{ih} = 1\)</span>, <span class="math inline">\(W_{ho} = 1\)</span>, and choose something for <span class="math inline">\(W_{hh}\)</span>.</li>
+</ul>
+<div id="d7fdc99f-ce52-44f0-9082-1ec19b4fbc14" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sigmoid(x):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    S <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span><span class="op">+</span>np.exp(<span class="op">-</span>x))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> S</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>K  <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>It <span class="op">=</span> np.random.randn(K)<span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>ht <span class="op">=</span> np.zeros([K,<span class="dv">1</span>])</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>ot <span class="op">=</span> np.zeros([K,<span class="dv">1</span>])</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial state</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>ht[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>ot[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Set parameters</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>Wih <span class="op">=</span> <span class="co"># SOMETHING</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>Whh <span class="op">=</span> <span class="co"># SOMETHING</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>Who <span class="op">=</span> <span class="co"># SOMETHING</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Update h and o at each time.</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> np.arange(<span class="dv">1</span>,K<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    ht[k] <span class="op">=</span> <span class="co"># SOMETHING</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    H     <span class="op">=</span> <span class="co"># SOMETHING</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    ot[k] <span class="op">=</span> <span class="co"># SOMETHING</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    O     <span class="op">=</span> <span class="co"># SOMETHING</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>plt.plot(It, <span class="st">'b'</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>plt.plot(ht, <span class="st">'k'</span>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>plt.plot(ot, <span class="st">'r'</span>)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">'It'</span>, <span class="st">'ht'</span>, <span class="st">'ot'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>Q:</strong> How does the spiking frequency change?</p>
-<p><strong>Q:</strong> How do the synapses evolve?</p>
-<p><strong>Q:</strong> This model captures 3 experimental observations we discussed in class. To generate gamma, 1) The cell needs sufficient excitatory drive, 2) The GABA synapse is critical, and 3) Altering the decay time of the inhibitory synapse changes the gamma frequency.</p>
-<p>Show that all three observations are captured by this model.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -376,57 +395,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
-  }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);

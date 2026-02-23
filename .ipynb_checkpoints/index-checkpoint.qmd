@@ -30,13 +30,15 @@ title: "BU NE593 (Spring 2026)"
 - Code: [Hopfield Examples](Hopfield.html)
 - Code: [Linear Algebra Examples](Linear_Algebra.html)
 
-<!-- # Recurrent Neural Networks
+# Recurrent Neural Networks
 - Read: [*The Next Frontier Is Inside Your Brain*, NYT, 2013](/Readings/Boffey_NYT_2013.pdf)
 - Read: [*Probing Brain’s Depth, Trying to Aid Memory*, NYT, 2014](/Readings/Carey_NYT_2014.pdf)
 - Read: [*Brace Yourself for the AI Tsunami*, WSJ, 2026](/Readings/Noonan_WSJ_2026.pdf)
+- Read: [*AI Isn’t Coming for Every White-Collar Job. At Least Not Yet*, NYT, 2026](/Readings/Metz_NYT_2026.pdf)
 - Lecture Slides: [RNN](/Slides/RNN_Lecture.pdf)
-- Code:
+- Code: [RNN Examples](RNN.html)
 
+<!-- 
 # Leaky Integrate \& Fire Neuron
 - Read: [Abbott, Brain Res Bull, 1999](/Readings/Abbott_1999.pdf)
 - Read: [Chapter 1, pages 5-12 @ C. Koch, Biophysics of computation, 1998](/Readings/Koch_Chapter_1.pdf)
