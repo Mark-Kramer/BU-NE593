@@ -36,6 +36,7 @@ title: "BU NE593 (Spring 2026)"
 - Read: [*Brace Yourself for the AI Tsunami*, WSJ, 2026](/Readings/Noonan_WSJ_2026.pdf)
 - Read: [*AI Isn’t Coming for Every White-Collar Job. At Least Not Yet*, NYT, 2026](/Readings/Metz_NYT_2026.pdf)
 - Lecture Slides: [RNN](/Slides/RNN_Lecture.pdf)
+- Lecture Slides: [Themes So Far](/Slides/Course_Themes.pdf)
 - Code: [RNN Examples](RNN.html)
 
 <!-- 
