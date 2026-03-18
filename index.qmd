@@ -38,17 +38,17 @@ title: "BU NE593 (Spring 2026)"
 - Lecture Slides: [RNN](/Slides/RNN_Lecture.pdf)
 - Lecture Slides: [Themes So Far](/Slides/Course_Themes.pdf)
 - Code: [RNN Examples](RNN.html)
-
-<!-- 
+ 
 # Leaky Integrate \& Fire Neuron
 - Read: [Abbott, Brain Res Bull, 1999](/Readings/Abbott_1999.pdf)
 - Read: [Chapter 1, pages 5-12 @ C. Koch, Biophysics of computation, 1998](/Readings/Koch_Chapter_1.pdf)
 - Read: [*Learning How Little We Know About the Brain*, NYT, 2014](/Readings/Gorman_NYT_2014.pdf)
 - Read: [*Relax, the Terminator Is Far Away*, NYT, 2015](/Readings/Markoff_NYT_2015.pdf)
 - Read: [*Barbie Wants to Get to Know Your Child*, NYT, 2015](/Readings/Vlahos_NYT_2015.pdf)
-- Lecture Slides: [LIF](LIF.pdf)
+- Note Taker: [LIF](/Slides/LIF.pdf)
 - Code:  [LIF in Python](LIF.html)
 
+<!--
 # Hodgkin-Huxley Neuron
 - Read: [Chapter 2, pages 25-42 @ E. Izhikevich, Dynamical Systems in Neuroscience, 2007.](/Readings/Izhikevich_Chapter_2.pdf)
 - Read: [Hodgkin-Huxley 1-page cheat sheet](/Readings/Hodgkin-Huxley_Cheat_Sheet.pdf)

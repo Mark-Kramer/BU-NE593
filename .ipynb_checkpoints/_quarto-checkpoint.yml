@@ -24,8 +24,8 @@ website:
         text: Linear Algebra
       - href: RNN.html
         text: RNN
-#      - href: LIF.html
-#        text: LIF
+      - href: LIF.html
+        text: LIF
 #      - href: HH.html
 #        text: HH
 
