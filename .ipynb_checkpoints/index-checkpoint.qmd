@@ -47,6 +47,7 @@ title: "BU NE593 (Spring 2026)"
 - Read: [*Barbie Wants to Get to Know Your Child*, NYT, 2015](/Readings/Vlahos_NYT_2015.pdf)
 - Note Taker: [LIF](/Slides/LIF.pdf)
 - Code:  [LIF in Python](LIF.html)
+- **[Project Outline](/Slides/Project_Papers_and_Ideas.pdf)**
 
 <!--
 # Hodgkin-Huxley Neuron
