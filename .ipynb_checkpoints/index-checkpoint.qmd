@@ -49,7 +49,6 @@ title: "BU NE593 (Spring 2026)"
 - Code:  [LIF in Python](LIF.html)
 - **[Project Outline](/Slides/Project_Papers_and_Ideas.pdf)**
 
-<!--
 # Hodgkin-Huxley Neuron
 - Read: [Chapter 2, pages 25-42 @ E. Izhikevich, Dynamical Systems in Neuroscience, 2007.](/Readings/Izhikevich_Chapter_2.pdf)
 - Read: [Hodgkin-Huxley 1-page cheat sheet](/Readings/Hodgkin-Huxley_Cheat_Sheet.pdf)
@@ -59,7 +58,7 @@ title: "BU NE593 (Spring 2026)"
 - Lecture Slides: [HH](/Slides/HH_Lecture_1.pdf)
 - Code:  [Hodgkin-Huxley Neuron in Python](HH.html)
 
-# FitzHugh-Nagumo Neuron
+<!-- # FitzHugh-Nagumo Neuron
 - Read: [Wikipedia](https://en.wikipedia.org/wiki/FitzHugh%E2%80%93Nagumo_model)
 - Read: [*The Great A.I. Awakening*, NYT, 2016](/Readings/Lewis-Kraus_NYT_2016.pdf)
 - Read: [Thwaites et al, *The difficult legacy of Turing’s wager*, J Comp Neuro, 2017](/Readings/Thwaites_2017.pdf)
