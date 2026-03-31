@@ -26,8 +26,10 @@ website:
         text: RNN
       - href: LIF.html
         text: LIF
-#      - href: HH.html
-#        text: HH
+      - href: HH.html
+        text: HH
+      - href: Exercise-in-GitHub.html
+        text: GitHub
 
 format:
   html:

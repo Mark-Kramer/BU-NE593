@@ -58,6 +58,10 @@ title: "BU NE593 (Spring 2026)"
 - Lecture Slides: [HH](/Slides/HH_Lecture_1.pdf)
 - Code:  [Hodgkin-Huxley Neuron in Python](HH.html)
 
+# Projects
+- Template Slides: [Check in Template](/Slides/Project_Check_In_Template.pdf)
+- Code: [GitHub Introduction](Exercise-in-GitHub.html)
+
 <!-- # FitzHugh-Nagumo Neuron
 - Read: [Wikipedia](https://en.wikipedia.org/wiki/FitzHugh%E2%80%93Nagumo_model)
 - Read: [*The Great A.I. Awakening*, NYT, 2016](/Readings/Lewis-Kraus_NYT_2016.pdf)

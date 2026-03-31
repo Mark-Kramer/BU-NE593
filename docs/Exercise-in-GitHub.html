@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>BU NE593 (Spring 2026) – BU NE593</title>
+<title>exercise-in-github – BU NE593</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">HH</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Exercise-in-GitHub.html"> 
+    <a class="nav-link active" href="./Exercise-in-GitHub.html" aria-current="page"> 
 <span class="menu-text">GitHub</span></a>
   </li>  
 </ul>
@@ -144,149 +144,86 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#perceptron" id="toc-perceptron" class="nav-link" data-scroll-target="#perceptron">Perceptron</a></li>
-  <li><a href="#hopfield" id="toc-hopfield" class="nav-link" data-scroll-target="#hopfield">Hopfield</a></li>
-  <li><a href="#recurrent-neural-networks" id="toc-recurrent-neural-networks" class="nav-link" data-scroll-target="#recurrent-neural-networks">Recurrent Neural Networks</a></li>
-  <li><a href="#leaky-integrate-fire-neuron" id="toc-leaky-integrate-fire-neuron" class="nav-link" data-scroll-target="#leaky-integrate-fire-neuron">Leaky Integrate &amp; Fire Neuron</a></li>
-  <li><a href="#hodgkin-huxley-neuron" id="toc-hodgkin-huxley-neuron" class="nav-link" data-scroll-target="#hodgkin-huxley-neuron">Hodgkin-Huxley Neuron</a></li>
-  <li><a href="#projects" id="toc-projects" class="nav-link" data-scroll-target="#projects">Projects</a></li>
+  <li><a href="#introduction-to-github" id="toc-introduction-to-github" class="nav-link active" data-scroll-target="#introduction-to-github">Introduction to GitHub</a>
+  <ul class="collapse">
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#making-changes" id="toc-making-changes" class="nav-link" data-scroll-target="#making-changes">Making changes</a></li>
+  <li><a href="#publishing-online" id="toc-publishing-online" class="nav-link" data-scroll-target="#publishing-online">Publishing online</a></li>
+  <li><a href="#forks" id="toc-forks" class="nav-link" data-scroll-target="#forks">Forks</a></li>
+  <li><a href="#branches" id="toc-branches" class="nav-link" data-scroll-target="#branches">Branches</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">BU NE593 (Spring 2026)</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
+<section id="introduction-to-github" class="level1">
+<h1>Introduction to GitHub</h1>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
 <ul>
-<li>Read the <a href="./Slides/NE593_Syllabus.pdf">syllabus</a></li>
-<li>Read: <a href="./Readings/Buzsaki_Science_2004.pdf">Buzsaki and Draguhn, <em>Neuronal Oscillations in Cortical Networks</em>, Science, 2004</a></li>
-<li>Read: <a href="./Readings/Riquelme_2021.pdf">Riquelme and Gjorgjieva, <em>Towards readable code in neuroscience</em>, Nat Rev Neuro, 2021</a></li>
-<li>Read: <a href="./Readings/Wing_2006.pdf">Wing, <em>Computational Thinking</em>, Comm ACM, 2006</a></li>
-<li>Read: <a href="./Readings/Cohen_chap4.pdf">Chapter 4 (Intro to Programming) @ Cohen, Analyzing Neural Time Series Data, 2014</a></li>
-<li>Read: <a href="./Readings/Cohen_chap37.pdf">Chapter 37 (Themes &amp; Advice) @ Cohen, Analyzing Neural Time Series Data, 2014</a></li>
-<li>Lecture Slides: <a href="./Slides/Rhythms_1.pdf">Rhythms</a>, <a href="./Slides/Programming_Habits_2.pdf">Programming Habits</a></li>
-<li>Code: <a href="Introduction.html">Intro to Python</a></li>
+<li><p>Download <a href="https://desktop.github.com/">GitHub Desktop</a></p></li>
+<li><p>Use GitHub Desktop to make a new repository <code>example-NE593-your-last-name</code> on your computer.</p></li>
+<li><p>Create a Jupyter notebook with example code and text; save it in your repository.</p>
+<p><em>Here’s my first example.</em></p>
+<pre><code>def simple-code-your-name(x):
+  y = x*x+1 
+  return y</code></pre></li>
+<li><p>Commit the file on GitHub Desktop, with a useful description.</p></li>
 </ul>
 </section>
-<section id="perceptron" class="level1">
-<h1>Perceptron</h1>
+<section id="making-changes" class="level2">
+<h2 class="anchored" data-anchor-id="making-changes">Making changes</h2>
 <ul>
-<li>Read: <a href="./Readings/NYT_1958.pdf"><em>Electronic Brain Teaches Itself</em>, NYT, 1958</a></li>
-<li>Read: <a href="./Readings/Au-Yeung_WSJ_2025.pdf"><em>Millions of Coders Love This AI Startup. Can It Last?</em> WSJ, 2025</a></li>
-<li>Read: <a href="./Readings/Sejnowski_2010.pdf">Sejnowski, <em>When Will We Be Able to Build Brains Like Ours?</em>, Scientific Americian, 2010</a></li>
-<li>Lecture Slides: <a href="./Slides/Perceptron_1_and_2.pdf">Perceptrons</a></li>
-<li>Lecture Slides: <a href="./Slides/Backpropagation.pdf">Backpropagation</a></li>
-<li>Code: <a href="Perceptron.html">Training a Perceptron in Python</a></li>
-<li>Code: <a href="Backpropagation.html">Backpropagation Example</a></li>
+<li><p>Make a change on your computer, and commit the change on GitHub Desktop.</p>
+<p><em>Now I’ve modifired my example.</em></p>
+<pre><code>def simple-code-your-name(x):
+  y = x*x/2+1
+  return y</code></pre></li>
+<li><p>Revert the commit on GitHub Desktop.</p></li>
 </ul>
 </section>
-<section id="hopfield" class="level1">
-<h1>Hopfield</h1>
+<section id="publishing-online" class="level2">
+<h2 class="anchored" data-anchor-id="publishing-online">Publishing online</h2>
 <ul>
-<li>Read: <a href="./Readings/Kleinfeld_2024.pdf">Kleinfeld, <em>Nobel honors for John Hopfield</em>, Neuron, 2024</a></li>
-<li>Read: <a href="./Readings/Lin_Huang_NYT_2011.pdf"><em>Imagining 2076: Connect Your Brain to the Internet</em>, NYT, 2011</a></li>
-<li>Read: <a href="./Readings/Markoff_NYT_2012.pdf"><em>Scientists See Promise in Deep-Learning Programs</em>, NYT, 2012</a></li>
-<li>*Bonus Read: <a href="https://www.pnas.org/doi/10.1073/pnas.79.8.2554">Hopfield, <em>Neural networks and physical systems…</em>, PNAS, 1982</a></li>
-<li>Lecture Slides: <a href="./Slides/Hopfield_Lecture_1.pdf">Hopfield Part 1</a>, <a href="./Slides/Linear_Algebra_1.pdf">Linear Algebra Part 1</a>, <a href="./Slides/Hopfield_Lecture_2.pdf">Hopfield Part 2</a></li>
-<li>Code: <a href="Hopfield.html">Hopfield Examples</a></li>
-<li>Code: <a href="Linear_Algebra.html">Linear Algebra Examples</a></li>
+<li><p>Publish to github.com, and make it public.</p></li>
+<li><p>Update the file on github.com, and commit on github.com</p></li>
+<li><p>Fetch the file changes on GitHub Desktop.</p></li>
+<li><p>Make another change on your computer, commit it on GitHub Desktop, and push it to github.com</p>
+<p><em>And other change!</em></p>
+<pre><code>def simple-code-your-name(x):
+  y = x*x/2+x+1
+  return y</code></pre></li>
 </ul>
 </section>
-<section id="recurrent-neural-networks" class="level1">
-<h1>Recurrent Neural Networks</h1>
+<section id="forks" class="level2">
+<h2 class="anchored" data-anchor-id="forks">Forks</h2>
 <ul>
-<li>Read: <a href="./Readings/Boffey_NYT_2013.pdf"><em>The Next Frontier Is Inside Your Brain</em>, NYT, 2013</a></li>
-<li>Read: <a href="./Readings/Carey_NYT_2014.pdf"><em>Probing Brain’s Depth, Trying to Aid Memory</em>, NYT, 2014</a></li>
-<li>Read: <a href="./Readings/Noonan_WSJ_2026.pdf"><em>Brace Yourself for the AI Tsunami</em>, WSJ, 2026</a></li>
-<li>Read: <a href="./Readings/Metz_NYT_2026.pdf"><em>AI Isn’t Coming for Every White-Collar Job. At Least Not Yet</em>, NYT, 2026</a></li>
-<li>Lecture Slides: <a href="./Slides/RNN_Lecture.pdf">RNN</a></li>
-<li>Lecture Slides: <a href="./Slides/Course_Themes.pdf">Themes So Far</a></li>
-<li>Code: <a href="RNN.html">RNN Examples</a></li>
+<li><p>Fork your neighbor’s <code>example-NE593-your-name</code> repository on github.com</p></li>
+<li><p>Make changes to the forked respository on github.com</p></li>
+<li><p>Create a pull request</p></li>
+<li><p>Confer with your partner, and accept/reject pull request.</p></li>
 </ul>
 </section>
-<section id="leaky-integrate-fire-neuron" class="level1">
-<h1>Leaky Integrate &amp; Fire Neuron</h1>
+<section id="branches" class="level2">
+<h2 class="anchored" data-anchor-id="branches">Branches</h2>
+<p>If there’s time:</p>
 <ul>
-<li>Read: <a href="./Readings/Abbott_1999.pdf">Abbott, Brain Res Bull, 1999</a></li>
-<li>Read: <a href="./Readings/Koch_Chapter_1.pdf">Chapter 1, pages 5-12 @ C. Koch, Biophysics of computation, 1998</a></li>
-<li>Read: <a href="./Readings/Gorman_NYT_2014.pdf"><em>Learning How Little We Know About the Brain</em>, NYT, 2014</a></li>
-<li>Read: <a href="./Readings/Markoff_NYT_2015.pdf"><em>Relax, the Terminator Is Far Away</em>, NYT, 2015</a></li>
-<li>Read: <a href="./Readings/Vlahos_NYT_2015.pdf"><em>Barbie Wants to Get to Know Your Child</em>, NYT, 2015</a></li>
-<li>Note Taker: <a href="./Slides/LIF.pdf">LIF</a></li>
-<li>Code: <a href="LIF.html">LIF in Python</a></li>
-<li><strong><a href="./Slides/Project_Papers_and_Ideas.pdf">Project Outline</a></strong></li>
+<li><p>Make a branch <code>two-inputs</code> on GitHub Desktop.</p></li>
+<li><p>Edit the function on branch <code>two-inputs</code> on your computer, and commit it on GitHub Desktop.</p>
+<p><em>Now there are two inputs to my function.</em></p>
+<pre><code>def simple-code-your-name(x,z):
+  y = x*x/2+z/3+1
+  return y</code></pre></li>
+<li><p>Toggle between the two branches (<code>master</code> and <code>two-inputs</code>) on GitHub Desktop</p></li>
 </ul>
+
+
 </section>
-<section id="hodgkin-huxley-neuron" class="level1">
-<h1>Hodgkin-Huxley Neuron</h1>
-<ul>
-<li>Read: <a href="./Readings/Izhikevich_Chapter_2.pdf">Chapter 2, pages 25-42 @ E. Izhikevich, Dynamical Systems in Neuroscience, 2007.</a></li>
-<li>Read: <a href="./Readings/Hodgkin-Huxley_Cheat_Sheet.pdf">Hodgkin-Huxley 1-page cheat sheet</a></li>
-<li>Read: <a href="./Readings/Harmon_NYT_2015.pdf"><em>A Dying Young Woman’s Hope in Cryonics and a Future</em>, NYT, 2015</a></li>
-<li>Read: <a href="./Readings/Markoff_Lohr_NYT_2016.pdf"><em>The Race Is On to Control Artificial Intelligence, and Tech’s Future</em>, NYT, 2016</a></li>
-<li>Read: <a href="./Readings/Markoff_NYT_2016.pdf"><em>When Is the Singularity? Probably Not in Your Lifetime</em>, NYT, 2016</a></li>
-<li>Lecture Slides: <a href="./Slides/HH_Lecture_1.pdf">HH</a></li>
-<li>Code: <a href="HH.html">Hodgkin-Huxley Neuron in Python</a></li>
-</ul>
-</section>
-<section id="projects" class="level1">
-<h1>Projects</h1>
-<ul>
-<li>Template Slides: <a href="./Slides/Project_Check_In_Template.pdf">Check in Template</a></li>
-<li>Code: <a href="Exercise-in-GitHub.html">GitHub Introduction</a></li>
-</ul>
-<!-- # FitzHugh-Nagumo Neuron
-- Read: [Wikipedia](https://en.wikipedia.org/wiki/FitzHugh%E2%80%93Nagumo_model)
-- Read: [*The Great A.I. Awakening*, NYT, 2016](/Readings/Lewis-Kraus_NYT_2016.pdf)
-- Read: [Thwaites et al, *The difficult legacy of Turing’s wager*, J Comp Neuro, 2017](/Readings/Thwaites_2017.pdf)
-- Lecture Slides: [FHN](FHN.pdf)
-- Code:
-
-# A simple oscillator
-- Read: [Kramer et al, *Golden rhythms as a theoretical framework...*, 2022](/Readings/Kramer_2022.pdf)
-- Read: [*Chips Off the Old Block: Computers Are Taking Design Cues From Human Brains*, NYT, 2017](/Readings/Metz_NYT_2017.pdf)
-- Read: [*Artificial Intelligence Hits the Barrier of Meaning*, NYT, 2018](/Readings/Mitchell_NYT_2018.pdf)
-- Read: [*‘The Beginning of a Wave’: A.I. Tiptoes Into the Workplace*, NYT, 2018](/Readings/Lohr_NYT_2018.pdf)
-- Lecture Slides [SHO](SHO.pdf)
-- Code:
-
-# Gamma rhythms
-- Read: [Chapter 30 (PING) @ Borgers, An Introduction to Modeling Neuronal Dynamics, 2017](/Readings/Borgers_PING_2017.pdf)
-- Read: [Chapter 31 (ING) @ Borgers, An Introduction to Modeling Neuronal Dynamics, 2017](/Readings/Borgers_ING_2017.pdf)
-- Read: [*A Machine May Not Take Your Job, but One Could Become Your Boss*, NYT, 2019](/Readings/Roose_NYT_2019.pdf)
-- Read: [*AI Can Almost Write Like a Human—and More Advances Are Coming*, WSJ, 2020](/Readings/Council_WSJ_2020.pdf)
-- Lecture Slides: [Gamma Rhythms](/Slides/Gamma_Lecture.pdf)
-- Code: [Gamma Lab](Gamma_Lab.html)
-
-# Beta rhythms
-- Read: [Chapter 33 (Beta) @ Borgers, An Introduction to Modeling Neuronal Dynamics, 2017](/Readings/Borgers_Beta_2017.pdf)
-- Read: [*The False Promise of ChatGPT*, NYT, 2023](/Readings/Chomsky_NYT_2023.pdf)
-- Lecture Slides: [Beta Rhythms](Slides/Beta_Lecture.pdf)
-- Code: [Beta](Beta.html)
--->
-
-
 </section>
 
 </main> <!-- /main -->
