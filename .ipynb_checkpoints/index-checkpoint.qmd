@@ -47,7 +47,6 @@ title: "BU NE593 (Spring 2026)"
 - Read: [*Barbie Wants to Get to Know Your Child*, NYT, 2015](/Readings/Vlahos_NYT_2015.pdf)
 - Note Taker: [LIF](/Slides/LIF.pdf)
 - Code:  [LIF in Python](LIF.html)
-- **[Project Outline](/Slides/Project_Papers_and_Ideas.pdf)**
 
 # Hodgkin-Huxley Neuron
 - Read: [Chapter 2, pages 25-42 @ E. Izhikevich, Dynamical Systems in Neuroscience, 2007.](/Readings/Izhikevich_Chapter_2.pdf)
@@ -59,6 +58,7 @@ title: "BU NE593 (Spring 2026)"
 - Code:  [Hodgkin-Huxley Neuron in Python](HH.html)
 
 # Projects
+- **[Project Outline](/Slides/Project_Papers_and_Ideas.pdf)**
 - Template Slides: [Check in Template](/Slides/Project_Check_In_Template.pdf)
 - Code: [GitHub Introduction](Exercise-in-GitHub.html)
 
