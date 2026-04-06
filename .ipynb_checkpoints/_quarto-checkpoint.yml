@@ -30,6 +30,8 @@ website:
         text: HH
       - href: Exercise-in-GitHub.html
         text: GitHub
+      - href: Theta_Neuron.html
+        text: Theta
 
 format:
   html:
