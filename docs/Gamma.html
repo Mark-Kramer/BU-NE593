@@ -166,6 +166,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./Theta_Neuron.html"> 
 <span class="menu-text">Theta</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./Gamma.html" aria-current="page"> 
+<span class="menu-text">Gamma</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -187,6 +191,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#begin-with-the-inhibitory-synapse-turned-off." id="toc-begin-with-the-inhibitory-synapse-turned-off." class="nav-link" data-scroll-target="#begin-with-the-inhibitory-synapse-turned-off.">Begin with the inhibitory synapse turned off.</a></li>
   <li><a href="#turn-on-the-inhibitory-synapse." id="toc-turn-on-the-inhibitory-synapse." class="nav-link" data-scroll-target="#turn-on-the-inhibitory-synapse.">Turn on the inhibitory synapse.</a></li>
   </ul></li>
+  <li><a href="#ping" id="toc-ping" class="nav-link" data-scroll-target="#ping">PING</a></li>
+  <li><a href="#sparse-ping" id="toc-sparse-ping" class="nav-link" data-scroll-target="#sparse-ping">Sparse PING</a></li>
   </ul>
 </nav>
     </div>
@@ -264,11 +270,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    s[<span class="dv">0</span>]<span class="op">=</span><span class="fl">0.0</span></span>
 <span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,T<span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        V[i<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> V[i] <span class="op">+</span> dt<span class="op">*</span>(gNa0<span class="op">*</span>m[i]<span class="op">**</span><span class="dv">3</span><span class="op">*</span>h[i]<span class="op">*</span>(ENa<span class="op">-</span>(V[i]<span class="op">+</span><span class="dv">65</span>)) <span class="op">+</span> gK0<span class="op">*</span>n[i]<span class="op">**</span><span class="dv">4</span><span class="op">*</span>(EK<span class="op">-</span>(V[i]<span class="op">+</span><span class="dv">65</span>)) <span class="op">+</span> gL0<span class="op">*</span>(EL<span class="op">-</span>(V[i]<span class="op">+</span><span class="dv">65</span>)) <span class="op">+</span> I0 <span class="op">+</span> gI<span class="op">*</span>s[i]<span class="op">*</span>(<span class="op">-</span><span class="dv">80</span> <span class="op">-</span> V[i]))</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        V[i<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> V[i] <span class="op">+</span> dt<span class="op">*</span>( <span class="st">"something"</span> )</span>
 <span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>        m[i<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> m[i] <span class="op">+</span> dt<span class="op">*</span>(alphaM(V[i])<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>m[i]) <span class="op">-</span> betaM(V[i])<span class="op">*</span>m[i])<span class="op">;</span></span>
 <span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>        h[i<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> h[i] <span class="op">+</span> dt<span class="op">*</span>(alphaH(V[i])<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>h[i]) <span class="op">-</span> betaH(V[i])<span class="op">*</span>h[i])<span class="op">;</span></span>
 <span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>        n[i<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> n[i] <span class="op">+</span> dt<span class="op">*</span>(alphaN(V[i])<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>n[i]) <span class="op">-</span> betaN(V[i])<span class="op">*</span>n[i])<span class="op">;</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>        s[i<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> s[i] <span class="op">+</span> dt <span class="op">*</span> (((<span class="dv">1</span> <span class="op">+</span> np.tanh(V[i] <span class="op">/</span> <span class="dv">10</span>)) <span class="op">/</span> <span class="dv">2</span>) <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> s[i]) <span class="op">/</span> <span class="fl">0.5</span> <span class="op">-</span> s[i] <span class="op">/</span> tauI)  <span class="co"># Update s</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>        s[i<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> s[i] <span class="op">+</span> dt<span class="op">*</span>( <span class="st">"something"</span> )</span>
 <span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> V,s,t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="begin-with-the-inhibitory-synapse-turned-off." class="level2">
@@ -297,9 +303,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Q:</strong> How do the synapses evolve?</p>
 <p><strong>Q:</strong> This model captures 3 experimental observations we discussed in class. To generate gamma, 1) The cell needs sufficient excitatory drive, 2) The GABA synapse is critical, and 3) Altering the decay time of the inhibitory synapse changes the gamma frequency.</p>
 <p>Show that all three observations are captured by this model.</p>
-
-
+<hr>
 </section>
+</section>
+<section id="ping" class="level1">
+<h1>PING</h1>
+<p>Now, create the PING model.</p>
+<p><em>HINT</em>: Begin with your ING model and extend it.</p>
+<div id="72201838-a562-41dd-bbeb-209852392bd8" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">"something"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="sparse-ping" class="level1">
+<h1>Sparse PING</h1>
+<p>If you’re up to the challenge …</p>
+<div id="4e565368-a590-474b-a4d1-652e2ed5dcb5" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">"something"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

@@ -69,6 +69,14 @@ title: "BU NE593 (Spring 2026)"
 - Note Taker: [Theta Neuron](Slides/Theta_Neuron.pdf)
 - Code: [Theta Neuron](Theta_Neuron.html)
 
+# Gamma rhythms
+- Read: [Chapter 30 (PING) @ Borgers, An Introduction to Modeling Neuronal Dynamics, 2017](/Readings/Borgers_PING_2017.pdf)
+- Read: [Chapter 31 (ING) @ Borgers, An Introduction to Modeling Neuronal Dynamics, 2017](/Readings/Borgers_ING_2017.pdf)
+- Read: [*A Machine May Not Take Your Job, but One Could Become Your Boss*, NYT, 2019](/Readings/Roose_NYT_2019.pdf)
+- Read: [*AI Can Almost Write Like a Human—and More Advances Are Coming*, WSJ, 2020](/Readings/Council_WSJ_2020.pdf)
+- Lecture Slides: [Gamma Rhythms](/Slides/Gamma_Lecture.pdf)
+- Code: [Gamma Lab](Gamma.html)
+
 <!-- # A simple oscillator
 - Read: [Kramer et al, *Golden rhythms as a theoretical framework...*, 2022](/Readings/Kramer_2022.pdf)
 - Read: [*Chips Off the Old Block: Computers Are Taking Design Cues From Human Brains*, NYT, 2017](/Readings/Metz_NYT_2017.pdf)
@@ -76,14 +84,6 @@ title: "BU NE593 (Spring 2026)"
 - Read: [*‘The Beginning of a Wave’: A.I. Tiptoes Into the Workplace*, NYT, 2018](/Readings/Lohr_NYT_2018.pdf)
 - Lecture Slides [SHO](SHO.pdf)
 - Code:
-
-# Gamma rhythms
-- Read: [Chapter 30 (PING) @ Borgers, An Introduction to Modeling Neuronal Dynamics, 2017](/Readings/Borgers_PING_2017.pdf)
-- Read: [Chapter 31 (ING) @ Borgers, An Introduction to Modeling Neuronal Dynamics, 2017](/Readings/Borgers_ING_2017.pdf)
-- Read: [*A Machine May Not Take Your Job, but One Could Become Your Boss*, NYT, 2019](/Readings/Roose_NYT_2019.pdf)
-- Read: [*AI Can Almost Write Like a Human—and More Advances Are Coming*, WSJ, 2020](/Readings/Council_WSJ_2020.pdf)
-- Lecture Slides: [Gamma Rhythms](/Slides/Gamma_Lecture.pdf)
-- Code: [Gamma Lab](Gamma_Lab.html)
 
 # Beta rhythms
 - Read: [Chapter 33 (Beta) @ Borgers, An Introduction to Modeling Neuronal Dynamics, 2017](/Readings/Borgers_Beta_2017.pdf)

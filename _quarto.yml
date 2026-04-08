@@ -32,6 +32,8 @@ website:
         text: GitHub
       - href: Theta_Neuron.html
         text: Theta
+      - href: Gamma.html
+        text: Gamma
 
 format:
   html:
