@@ -59,7 +59,7 @@ title: "BU NE593 (Spring 2026)"
 
 # Projects
 - **[Project Outline](/Slides/Project_Papers_and_Ideas.pdf)**
-- Template Slides: [Check in Template](/Slides/Project_Check_In_Template.pdf)
+- Template Slides: [Check in Template PDF](/Slides/Project_Check_In_Template.pdf), [Check in Template PowerPoint](/Slides/Project_Check_In_Template.pptx)
 - Code: [GitHub Introduction](Exercise-in-GitHub.html)
 
 # Theta Neuron
