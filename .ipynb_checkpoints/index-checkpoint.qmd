@@ -77,6 +77,13 @@ title: "BU NE593 (Spring 2026)"
 - Lecture Slides: [Gamma Rhythms](/Slides/Gamma_Lecture.pdf)
 - Code: [Gamma Lab](Gamma.html)
 
+# Beta rhythms
+- Read: [Chapter 33 (Beta) @ Borgers, An Introduction to Modeling Neuronal Dynamics, 2017](/Readings/Borgers_Beta_2017.pdf)
+- Read: [*The False Promise of ChatGPT*, NYT, 2023](/Readings/Chomsky_NYT_2023.pdf)
+- Read: [*The A.I. Disruption We've Been Waiting for Has Arrived*, NYT, 2026](/Readings/Ford_NYT_2026.pdf)
+- Lecture Slides: [Beta Rhythms](Slides/Beta_Lecture.pdf)
+- Code: [Beta](Beta.html)
+
 <!-- # A simple oscillator
 - Read: [Kramer et al, *Golden rhythms as a theoretical framework...*, 2022](/Readings/Kramer_2022.pdf)
 - Read: [*Chips Off the Old Block: Computers Are Taking Design Cues From Human Brains*, NYT, 2017](/Readings/Metz_NYT_2017.pdf)
@@ -84,10 +91,4 @@ title: "BU NE593 (Spring 2026)"
 - Read: [*‘The Beginning of a Wave’: A.I. Tiptoes Into the Workplace*, NYT, 2018](/Readings/Lohr_NYT_2018.pdf)
 - Lecture Slides [SHO](SHO.pdf)
 - Code:
-
-# Beta rhythms
-- Read: [Chapter 33 (Beta) @ Borgers, An Introduction to Modeling Neuronal Dynamics, 2017](/Readings/Borgers_Beta_2017.pdf)
-- Read: [*The False Promise of ChatGPT*, NYT, 2023](/Readings/Chomsky_NYT_2023.pdf)
-- Lecture Slides: [Beta Rhythms](Slides/Beta_Lecture.pdf)
-- Code: [Beta](Beta.html)
 -->
