@@ -58,8 +58,9 @@ title: "BU NE593 (Spring 2026)"
 - Code:  [Hodgkin-Huxley Neuron in Python](HH.html)
 
 # Projects
-- **[Project Outline](/Slides/Project_Papers_and_Ideas.pdf)**
+- [Project Outline](/Slides/Project_Papers_and_Ideas.pdf)
 - Template Slides: [Check in Template PDF](/Slides/Project_Check_In_Template.pdf), [Check in Template PowerPoint](/Slides/Project_Check_In_Template.pptx)
+- **Grading Rubrics:** [Presentation](/Slides/NE593_Presentation_Rubric.pdf), [GitHub](/Slides/NE593_Github_Rubric.pdf)
 - Code: [GitHub Introduction](Exercise-in-GitHub.html)
 
 # Theta Neuron
@@ -82,7 +83,11 @@ title: "BU NE593 (Spring 2026)"
 - Read: [*The False Promise of ChatGPT*, NYT, 2023](/Readings/Chomsky_NYT_2023.pdf)
 - Read: [*The A.I. Disruption We've Been Waiting for Has Arrived*, NYT, 2026](/Readings/Ford_NYT_2026.pdf)
 - Lecture Slides: [Beta Rhythms](Slides/Beta_Lecture.pdf)
-- Code: [Beta](Beta.html)
+- Code: [Beta Lab](Beta.html)
+
+# Gamma + Beta rhythms
+- Lecture Slides: [Gamma Beta Rhythms](Slides/Gamma_Beta_Lecture.pdf)
+- Code: [Gamma Beta Lab](Gamma_Beta_Lab.html)
 
 <!-- # A simple oscillator
 - Read: [Kramer et al, *Golden rhythms as a theoretical framework...*, 2022](/Readings/Kramer_2022.pdf)

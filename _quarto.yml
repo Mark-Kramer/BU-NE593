@@ -34,6 +34,10 @@ website:
         text: Theta
       - href: Gamma.html
         text: Gamma
+      - href: Beta.html
+        text: Beta
+      - href: Gamma_Beta_Lab.html
+        text: Gamma+Beta
 
 format:
   html:
